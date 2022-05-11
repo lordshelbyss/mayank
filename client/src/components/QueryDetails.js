@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 const QueryDetails = (props) => {
   const renderData = () => {
-    if (props.data) {
+    if (props.data && props.data.length) {
       return props.data.map((doc) => {
         return (
           <div class="row" key={doc._id}>
@@ -22,6 +22,8 @@ const QueryDetails = (props) => {
           </div>
         );
       });
+    }else if(props.data && !props.data.length){
+        return <div style={{textAlign:"center"}}>No results found</div>
     }
   };
 
